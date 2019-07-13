@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://www.reallyzhang.com</id>
+    <id>https://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-07-13T03:59:45.564Z</updated>
+    <updated>2019-07-13T04:05:27.405Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://www.reallyzhang.com"/>
-    <link rel="self" href="http://www.reallyzhang.com/atom.xml"/>
+    <link rel="alternate" href="https://www.reallyzhang.com"/>
+    <link rel="self" href="https://www.reallyzhang.com/atom.xml"/>
     <subtitle>稳定的心态和习惯，在日常练习中熟能生巧，长此以往，必然持续高效输出</subtitle>
-    <logo>http://www.reallyzhang.com/images/avatar.png</logo>
-    <icon>http://www.reallyzhang.com/favicon.ico</icon>
+    <logo>https://www.reallyzhang.com/images/avatar.png</logo>
+    <icon>https://www.reallyzhang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
     <entry>
         <title type="html"><![CDATA[PDF在线阅读]]></title>
-        <id>http://www.reallyzhang.com/post/6UF1l29b2</id>
-        <link href="http://www.reallyzhang.com/post/6UF1l29b2">
+        <id>https://www.reallyzhang.com/post/6UF1l29b2</id>
+        <link href="https://www.reallyzhang.com/post/6UF1l29b2">
         </link>
         <updated>2019-07-13T03:55:47.000Z</updated>
         <content type="html"><![CDATA[<p>规划：</p>
@@ -24,8 +24,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[共享创意宣言]]></title>
-        <id>http://www.reallyzhang.com/post/ZDg9YSAej</id>
-        <link href="http://www.reallyzhang.com/post/ZDg9YSAej">
+        <id>https://www.reallyzhang.com/post/ZDg9YSAej</id>
+        <link href="https://www.reallyzhang.com/post/ZDg9YSAej">
         </link>
         <updated>2019-07-13T03:26:38.000Z</updated>
         <content type="html"><![CDATA[<p>发布者意在让创意实现，不计较收益；
@@ -34,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[每天八件事]]></title>
-        <id>http://www.reallyzhang.com/post/iugfv_orR</id>
-        <link href="http://www.reallyzhang.com/post/iugfv_orR">
+        <id>https://www.reallyzhang.com/post/iugfv_orR</id>
+        <link href="https://www.reallyzhang.com/post/iugfv_orR">
         </link>
         <updated>2019-07-13T01:00:35.000Z</updated>
         <summary type="html"><![CDATA[<p>稳定的心态和习惯，在日常的练习中熟能生巧，长此以往，效率也高，输出也高。</p>
