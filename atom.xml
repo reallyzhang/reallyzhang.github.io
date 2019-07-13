@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://reallyzhang.github.io</id>
     <title>一张真人</title>
-    <updated>2019-07-13T00:54:18.906Z</updated>
+    <updated>2019-07-13T01:30:12.446Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://reallyzhang.github.io"/>
     <link rel="self" href="https://reallyzhang.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://reallyzhang.github.io/images/avatar.png</logo>
     <icon>https://reallyzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
+    <entry>
+        <title type="html"><![CDATA[每天八件事]]></title>
+        <id>https://reallyzhang.github.io/post/iugfv_orR</id>
+        <link href="https://reallyzhang.github.io/post/iugfv_orR">
+        </link>
+        <updated>2019-07-13T01:00:35.000Z</updated>
+        <summary type="html"><![CDATA[<p><img src="https://reallyzhang.github.io/post-images/1562981199510.jpg" alt="">
+稳定的心态和习惯，在日常的练习中熟能生巧，长此以往，效率也高，输出也高。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://reallyzhang.github.io/post-images/1562981199510.jpg" alt="">
+稳定的心态和习惯，在日常的练习中熟能生巧，长此以往，效率也高，输出也高。</p>
+<!-- more --> 
+<p>作息：11点半之前睡，七点之前起；</p>
+<ol>
+<li>搞卫生（整理房间，洗衣服等）；</li>
+<li>做早餐；</li>
+<li>看书写笔记；</li>
+<li>午休；</li>
+<li>洗澡；</li>
+<li>做晚餐；</li>
+<li>抄书写字；</li>
+<li>痛点输出；</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ 第一次在Gridea上面写博客，好激动啊]]></title>
         <id>https://reallyzhang.github.io/post/di-yi-ci-zai-gridea-shang-mian-xie-bo-ke-hao-ji-dong-a</id>
