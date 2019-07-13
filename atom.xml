@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://reallyzhang.github.io</id>
     <title>一张真人</title>
-    <updated>2019-07-13T00:44:29.664Z</updated>
+    <updated>2019-07-13T00:54:18.906Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://reallyzhang.github.io"/>
     <link rel="self" href="https://reallyzhang.github.io/atom.xml"/>
-    <subtitle>稳定的心态和习惯，自然在日常练习中熟能生巧，自然能越做越快效率也越来越高，然后就能持续的输出了...</subtitle>
+    <subtitle>稳定的心态和习惯，在日常练习中熟能生巧，如此效率也高，也能持续</subtitle>
     <logo>https://reallyzhang.github.io/images/avatar.png</logo>
     <icon>https://reallyzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
