@@ -1,148 +1,202 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
 
-<title>一张真人 | 一张真人</title>
-<meta name="description" content="稳定的心态和习惯，在日常练习中熟能生巧，如此效率也高，也能持续">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://reallyzhang.github.io/favicon.ico?v=1562982234400">
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    一张真人 | 一张真人
+</title>
+<link rel="shortcut icon" href="https://reallyzhang.github.io/favicon.ico?v=1562983435045">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://reallyzhang.github.io/styles/main.css">
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://reallyzhang.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-  </head>
-  <body>
-    <div id="app" class="main">
+</head>
 
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://reallyzhang.github.io">
-        <img src="https://reallyzhang.github.io/images/avatar.png?v=1562982234400" class="site-logo">
-        <h1 class="site-title">一张真人</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      稳定的心态和习惯，在日常练习中熟能生巧，如此效率也高，也能持续
-    </div>
-    <div class="site-footer">
-      ©<a href="https://github.com/getgridea/gridea" target="_blank">一张真人</a> | <a class="rss" href="https://reallyzhang.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
-
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 一张真人</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://reallyzhang.github.io/post/iugfv_orR">
-                  <h2 class="post-title">每天八件事</h2>
-                </a>
-                <div class="post-date">
-                  2019-07-13
-                </div>
-                <div class="post-abstract">
-                  <p>稳定的心态和习惯，在日常的练习中熟能生巧，长此以往，效率也高，输出也高。</p>
-
-                </div>
-              </div>
-              
-                <a class="right" href="https://reallyzhang.github.io/post/iugfv_orR">
-                  <div class="feature-container" style="background-image: url('http://reallyzhang.com/post-images/1562981199510.jpg')">
-                  </div>
-                </a>
-              
-            </article>
-          
-
-          <div class="pagination-container">
-  
-  
-</div>
-
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://reallyzhang.github.io">
+                <img class="avatar" src="https://reallyzhang.github.io/images/avatar.png?v=1562983435045" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    一张真人
+                </h1>
+            </div>
         </div>
-      </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="/" class="menu">
+                                    首页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/post/about" class="menu">
+                                    关于
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
     </div>
+</div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
 
-<script type="application/javascript">
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
 
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+        });
+    });
 </script>
 
+            <div id="main-content" class="post-container main-container">
+                <div id="content" class="main-container-left">
+                    
+    <div class="i-card">
+        <b>标签：#
+        一张真人</b>
+    </div>
+    
+        
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://reallyzhang.github.io/post/iugfv_orR">
+                        每天八件事
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2019-07-13</time>
+                    
+                        <a href="https://reallyzhang.github.io/tag/reallyzhang" class="post-tag i-tag
+                            i-tag-other_1">
+            #一张真人
+        </a>
+                        
+                        <a href="https://reallyzhang.github.io/tag/life" class="post-tag i-tag
+                            i-tag-other_2">
+            #生活
+        </a>
+                        
+                </div>
+                <div class="post-article">
+                    
+                        <a href="https://reallyzhang.github.io/post/iugfv_orR" class="post-feature-image" style="background-image:url(http://reallyzhang.com/post-images/1562981199510.jpg) ">
+                        </a>
+                        
+                            <div class="post-content">
+                                
+                                    <div class="post-content-abstract">
+                                        <p>稳定的心态和习惯，在日常的练习中熟能生巧，长此以往，效率也高，输出也高。</p>
+
+                                    </div>
+                                    
+                                            <a class="btn btn-text" href="https://reallyzhang.github.io/post/iugfv_orR">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+                <!-- 翻页 -->
+                
+                </div>
+                <!--  -->
+                <div class="main-container-middle"></div>
+                <!--  -->
+                <div id="sidebar" class="main-container-right">
+
+                    <!-- 个人信息 -->
+                    
+    <div class="id_card i-card">
+        <div class="id_card-avatar" style="background-image: url(https://reallyzhang.github.io/images/avatar.png?v=1562983435045)">
+        </div>
+        <h1 class="id_card-title">
+            一张真人
+        </h1>
+        <h2 class="id_card-description">
+            稳定的心态和习惯，在日常练习中熟能生巧，如此效率也高，也能持续
+        </h2>
+        <!--  -->
+        <div class="id_card-sns">
+            <!-- github -->
+            
+                    <!-- twitter -->
+                    
+                            <!-- weibo -->
+                            
+                                    <!-- facebook -->
+                                    
+
+        </div>
+    </div>
+    
+
+                        <!-- 公告栏 -->
+                        
+
+                </div>
+            </div>
 
 
 
-  </body>
+            <div class="site-footer">
+  ©<a href="https://github.com/getgridea/gridea" target="_blank">一张真人</a> | 
+  <a class="rss" href="https://reallyzhang.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+</body>
+
 </html>
