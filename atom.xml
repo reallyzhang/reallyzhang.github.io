@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-07-13T03:54:17.654Z</updated>
+    <updated>2019-07-13T03:57:23.257Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://www.reallyzhang.com"/>
     <link rel="self" href="http://www.reallyzhang.com/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>http://www.reallyzhang.com/images/avatar.png</logo>
     <icon>http://www.reallyzhang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
+    <entry>
+        <title type="html"><![CDATA[PDF在线阅读]]></title>
+        <id>http://www.reallyzhang.com/post/6UF1l29b2</id>
+        <link href="http://www.reallyzhang.com/post/6UF1l29b2">
+        </link>
+        <updated>2019-07-13T03:55:47.000Z</updated>
+        <content type="html"><![CDATA[<p>规划：</p>
+<p>阅读：
+复制粘贴；
+笔记：</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[共享创意宣言]]></title>
         <id>http://www.reallyzhang.com/post/ZDg9YSAej</id>
