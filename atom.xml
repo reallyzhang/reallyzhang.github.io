@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-07-14T02:13:15.149Z</updated>
+    <updated>2019-07-14T03:51:23.901Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.reallyzhang.com"/>
     <link rel="self" href="https://www.reallyzhang.com/atom.xml"/>
@@ -10,6 +10,51 @@
     <logo>https://www.reallyzhang.com/images/avatar.png</logo>
     <icon>https://www.reallyzhang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
+    <entry>
+        <title type="html"><![CDATA[Github Pages博客一站式集成客户端----Gridea]]></title>
+        <id>https://www.reallyzhang.com/post/Kzb7glRqk</id>
+        <link href="https://www.reallyzhang.com/post/Kzb7glRqk">
+        </link>
+        <updated>2019-07-14T02:17:37.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
+<p>工作几年，几经折腾，捯饬过Github Pages博客，也自己购买过服务器写过前端几个页面，都半途而废了吧，嫌弃Hexo 和 jekyll 配置繁琐各种坑，创作环境原始等，还自己折腾过用React来搭建GitHubPage ，最终都因为各种不能将就的原因放弃了...</p>
+<pre><code>	最近在学nodejs，准备写个博客后台练练手，说来也是奇怪好像和个人博客杠上了，每次学新东西都想写个博客系统，悲剧的
+	是每次都很快结束了，😭😭半途而废这不是我的风格，希望这次能把这个项目做完吧。
+</code></pre>
+<p>本来已经对Gihub Page麻木的我，在看到他人推荐文字中 ‘客户端’ 三个字的时候还是垂死病中惊坐起，上手体验一番，真香！</p>
+<p>Gridea官网：https://gridea.dev/</p>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
+<p>工作几年，几经折腾，捯饬过Github Pages博客，也自己购买过服务器写过前端几个页面，都半途而废了吧，嫌弃Hexo 和 jekyll 配置繁琐各种坑，创作环境原始等，还自己折腾过用React来搭建GitHubPage ，最终都因为各种不能将就的原因放弃了...</p>
+<pre><code>	最近在学nodejs，准备写个博客后台练练手，说来也是奇怪好像和个人博客杠上了，每次学新东西都想写个博客系统，悲剧的
+	是每次都很快结束了，😭😭半途而废这不是我的风格，希望这次能把这个项目做完吧。
+</code></pre>
+<p>本来已经对Gihub Page麻木的我，在看到他人推荐文字中 ‘客户端’ 三个字的时候还是垂死病中惊坐起，上手体验一番，真香！</p>
+<p>Gridea官网：https://gridea.dev/</p>
+<!-- more -->
+<h3 id="扶我起来我还能干">扶我起来，我还能干</h3>
+<p><img src="https://www.reallyzhang.com/post-images/1563072339542.png" alt="Gridea"></p>
+<p>怎么样，看上去是不是很有胃口。都是可视化的配置，还有写文章的编辑器，真的是很完美了，赶紧上手了一下编辑器，标签，封面图等等个性化的配置和Markdown支持都可以算得上业界良心了吧。</p>
+<p>文章管理，主题配置，菜单管理，评论配置等等也都能满足你的需求...</p>
+<h3 id="跳过的坑">跳过的坑</h3>
+<p>其它我就不剧透了，感兴趣自己去探索吧。下面把自己配置时几乎要抓狂的坑记录一下，希望对你能有所帮助：</p>
+<ol>
+<li>仓库不是填写仓库地址，而是仓库名。</li>
+</ol>
+<p><img src="https://www.reallyzhang.com/post-images/1563074630554.jpg" alt="token需要去Github上申请"></p>
+<p>token是要去Github上申请，点击头像--&gt;setting--&gt;Developer settings--&gt; Personal access tokens （具体参考下面一张图）</p>
+<ol start="2">
+<li>
+<p>除了token新建时我是全部选择，担心后面需要缺失什么权限，影响功能。另外就是在配置github第三方登录OAuth Apps的callback url这里的坑，一直报error=redirect_uri_mismatch错，登录不成功。最后发现自己域名在配置回调域名的时候习惯性地加了www，导致回调地址不匹配。我在这里找了三个小时的问题，偶然间忘加www才成功的，当然这里也可能跟我域名解析配置有关，所以只做为参考，不是标准答案。<strong>使用自己的域名配置回调地址时候不加www</strong></p>
+<p><img src="https://www.reallyzhang.com/post-images/1563074473409.png" alt="github"></p>
+</li>
+</ol>
+<p>当然其它人也有其它解决方案，这里放个issues连接，当你遇到回调的问题是可以参考：
+https://github.com/gitalk/gitalk/issues/162</p>
+<h3 id="尾声">尾声</h3>
+<p>我想从此以后我都可以不用折腾Github Pages了吧，可以安心写博客了。后面有机会倒是应该写一个自己的主题才算完美。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PDF在线阅读]]></title>
         <id>https://www.reallyzhang.com/post/6UF1l29b2</id>
