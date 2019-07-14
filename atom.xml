@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-07-14T04:07:05.800Z</updated>
+    <updated>2019-07-14T04:17:33.018Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.reallyzhang.com"/>
     <link rel="self" href="https://www.reallyzhang.com/atom.xml"/>
@@ -18,18 +18,14 @@
         <updated>2019-07-14T02:17:37.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
 <p>工作几年，几经折腾，捯饬过Github Pages博客，也自己购买过服务器写过前端几个页面，都半途而废了吧，嫌弃Hexo 和 jekyll 配置繁琐各种坑，创作环境原始等，还自己折腾过用React来搭建GitHubPage ，最终都因为各种不能将就的原因放弃了...</p>
-<pre><code>	最近在学nodejs，准备写个博客后台练练手，说来也是奇怪好像和个人博客杠上了，每次学新东西都想写个博客系统，悲剧的是每次都很快结束了，😭😭半途而废这不是我的风格，希望这次能把这个项目做完吧。
-</code></pre>
-<p>本来已经对Gihub Page麻木的我，在看到他人推荐文字中 ‘客户端’ 三个字的时候还是垂死病中惊坐起，上手体验一番，真香！</p>
-<p>Gridea官网：https://gridea.dev/</p>
 ]]></summary>
         <content type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
 <p>工作几年，几经折腾，捯饬过Github Pages博客，也自己购买过服务器写过前端几个页面，都半途而废了吧，嫌弃Hexo 和 jekyll 配置繁琐各种坑，创作环境原始等，还自己折腾过用React来搭建GitHubPage ，最终都因为各种不能将就的原因放弃了...</p>
+<!-- more -->
 <pre><code>	最近在学nodejs，准备写个博客后台练练手，说来也是奇怪好像和个人博客杠上了，每次学新东西都想写个博客系统，悲剧的是每次都很快结束了，😭😭半途而废这不是我的风格，希望这次能把这个项目做完吧。
 </code></pre>
 <p>本来已经对Gihub Page麻木的我，在看到他人推荐文字中 ‘客户端’ 三个字的时候还是垂死病中惊坐起，上手体验一番，真香！</p>
 <p>Gridea官网：https://gridea.dev/</p>
-<!-- more -->
 <h3 id="扶我起来我还能干">扶我起来，我还能干</h3>
 <p><img src="https://www.reallyzhang.com/post-images/1563072339542.png" alt="Gridea"></p>
 <p>怎么样，看上去是不是很有胃口。都是可视化的配置，还有写文章的编辑器，真的是很完美了，赶紧上手了一下编辑器，标签，封面图等等个性化的配置和Markdown支持都可以算得上业界良心了吧。</p>
