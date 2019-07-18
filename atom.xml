@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-07-14T09:05:09.148Z</updated>
+    <updated>2019-07-18T00:49:29.115Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.reallyzhang.com"/>
     <link rel="self" href="https://www.reallyzhang.com/atom.xml"/>
@@ -10,6 +10,297 @@
     <logo>https://www.reallyzhang.com/images/avatar.png</logo>
     <icon>https://www.reallyzhang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
+    <entry>
+        <title type="html"><![CDATA[NodeJs学习笔记]]></title>
+        <id>https://www.reallyzhang.com/post/2M_ACmXnP</id>
+        <link href="https://www.reallyzhang.com/post/2M_ACmXnP">
+        </link>
+        <updated>2019-07-18T00:48:47.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="1-jscript顶层对象windownode顶层对象是global对象">1. jscript顶层对象window,node顶层对象是global对象；</h2>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="1-jscript顶层对象windownode顶层对象是global对象">1. jscript顶层对象window,node顶层对象是global对象；</h2>
+<!-- more -->
+<pre><code class="language-js">
+var a=100;
+//window.a=100;
+
+global.a=undefined;
+
+</code></pre>
+<h2 id="2-nodejs中模块的概念-一个文件就是一个模块每个模块都有自己的作用域">2. nodejs中模块的概念 一个文件就是一个模块，每个模块都有自己的作用域;</h2>
+<ul>
+<li>当前文件路径：__filename；</li>
+</ul>
+<pre><code class="language-js">
+console.log(__filename);
+
+</code></pre>
+<ul>
+<li>模块加载机制：（路径填写--相对路径或绝对路径）</li>
+</ul>
+<pre><code class="language-js">
+//相对路径如果不加‘./’，node会去加载核心模块；
+require('./');
+
+//路径不加后缀，会先查找文件名apple，如果没有找到会默认添加.js , 而后再.json , 再.node
+require('./apple');
+
+
+</code></pre>
+<h2 id="3-模块加载-变量的使用">3. 模块加载-变量的使用</h2>
+<ul>
+<li>变量作用域是当前模块，外部不能直接访问</li>
+</ul>
+<ol>
+<li>访问方式：全局挂载：</li>
+</ol>
+<pre><code class="language-js">global.a=100;  
+
+</code></pre>
+<ol start="2">
+<li>使用模块对象 :require('./apple.js')方法会返回exports</li>
+</ol>
+<pre><code class="language-js">
+console.log(module);
+
+
+{
+    id:'',
+    exports:{}, 
+    parent:null,
+    filename:'',
+    children:[{id=&quot;&quot;,exports:{},parent,filename...}],
+
+}
+
+module.exports===exports;//true，因为exports的作用域在当前模块
+
+module.exports.apple=&quot;乔布斯&quot;;
+
+
+
+module.exports=[1,2,3]; //exports和module.exports指向关系断开了，不推荐
+
+module.exports.a=6;//exports等号赋值后，再挂载其它属性无效
+
+</code></pre>
+<h5 id="exports推荐挂载属性不推荐直接赋值">exports推荐挂载属性，不推荐直接赋值</h5>
+<h2 id="4-常用api-global">4. 常用API----global</h2>
+<pre><code class="language-js">
+__filename:''; //模块作用域，非全局属性，表示当前模块被解析后的绝对路径；
+__filename:''; //模块作用域，非全局属性，表示当前模块所在目录被解析后的绝对路径；
+
+
+Date();
+setTimeOut();
+setInterval();
+
+</code></pre>
+<h2 id="5-其它常用api">5. 其它常用API</h2>
+<pre><code>global.process//全局对象
+console.log(process);
+console.log()；
+
+process.stdin、process.stdout 标准输入输出流 （IO）
+</code></pre>
+<pre><code class="language-js">    let a;
+    let b;
+    process.stdin.resume();
+    process.stdout.write('【心动时刻】爱情保鲜测量仪...'+'请输入你的名字：');
+    process.stdin.on(&quot;data&quot;,(chunk)=&gt;{
+    if(!a){
+        a=chunk;
+        process.stdout.write('请输入你爱人的名字：');
+    }else{
+        b=chunk;
+        process.stdout.write(a+'@'+b+'你们的爱情保鲜一万年！');
+    }   
+});
+</code></pre>
+<pre><code>process.argv(node,.js文件名,以此是命令行参数) //包含命令行参数的数组
+    1. node.exe;
+    2. 当前.js文件名；
+    3. 接下来依次是命令行参数
+
+process.execPath 开启当前进程的node的绝对路径
+
+
+process.env 用户环境信息
+
+process.version node版本
+
+process.versions node以及node依赖包的版本信息
+
+process.pid 当前进程pid
+
+process.title 进程显示名称(getter/setter)
+
+process.arch cpu处理器架构 arm/ia32/x64
+
+process.latform 操作系统
+
+process.cwd 进程工作目录
+
+process.chdir 改变当前进程的工作目录
+
+process.memoryUsage() 内存使用情况 byte
+
+process.exit(code)
+
+process.kill(pid);
+</code></pre>
+<ol start="7">
+<li>Buffer 全局类，文件读取，操作二进制数据流，网络数据读取</li>
+</ol>
+<pre><code class="language-js">
+    new Buffer(size);//长度固定，不能更改；
+
+    new Buffer([1,2,3]);//字节数组，长度固定
+
+    new Buffer(string,encoding);//encoding默认'utf-8'
+
+
+    //字节长度和字符串长度的区别 bf.length字节长度
+    var bf=new Buffer('miaoV','utf-8');
+    for(var i=0;i&lt;bf.length;i++){
+        console.log(bf[i].tostring(16));//以16进制输出
+        console.log(String.fromCharCode(bf[i]));//以字节形式输出：m i a o V
+    }
+
+    var str1='miaov';
+    var bf1=new Buffer(str1);
+
+    console.log(str1.length);//5
+    console.log(bf1.length);//5
+    console.log(str1[0]);
+    var str2=&quot;妙味&quot;；
+    var bf2=new Buffer(str2);
+
+    console.log(str2.length);//2
+    console.log(bf2.length);//6 字节长度：一个中文占3个字节
+    var buf=new Buffer(1024);
+
+
+
+    buf.write(string,offset起始,length长度,encoding);
+
+    buf.tostring('utf-8',1,2);//start end
+
+
+    buf.slice(start,end); //返回新buf会和老buf指向相同的内存地址；
+
+    buf.copy();//返回新buf，指向新内存地址；
+
+    buf.copy(目标buf,新buf start,新buf end);
+
+
+    Buffer.isEncoding('utf-8');//是否支持编码
+
+    Buffer.isBuffer();
+    //Buffer.by
+
+</code></pre>
+<ol start="8">
+<li>File System文件系统</li>
+</ol>
+<pre><code>    var fs=require('fs');//引入文件系统
+    
+    /**
+    * 异步方法，通过callback继续操作 非阻塞
+    * path 路径
+    * flags 打开方式 读/写 r/w
+    * mode  文件模式 读/写/执行  4/2/1
+    * callback (err,fd) 错误信息，文件标识，定时器
+    */
+    fs.open(path,flags,[mode],callback); //路径 打开方式读、写
+
+    eg: fs.open('1.txt','r',function);
+
+    /**
+    * 同步方法，通过返回值继续操作 阻塞
+    */
+    fs.openSync(path,flags,[mode]);
+
+
+    fs.open('1.txt','r',function(err,fd){
+
+        fs.read(fd,new Buffer(10),offset bf偏移量,length内容长度,position 读取fd起始值，function(err,bf.length写入长度,bf){
+
+        });
+
+    })
+
+    /**
+    * 打开文件之后读取文件内容
+    * fd 
+    * bf 
+    * offset bf起始位置
+    * length 读取长度
+    * position 从fd第几位开始
+    * callback （err,bf.length,bf）
+    */
+    fs.read();
+
+    /**
+    * 同步读取
+    */
+    fs.readSync();
+
+    /**
+    * 打开文件之后读取文件内容 open模式为 'r+'模式
+    * fd 开发返回的fd
+    * bf 需要写入的bf
+    * offset bf起始位置
+    * length 读取长度
+    * position 从fd第几位开始
+    * callback （err,bf.length,bf）
+    */
+    fs.write(fd,bf,offset,length,fd的起始，callback)
+
+
+
+    /**写字符串
+    */
+    fs.write(fd,bf,offset,length,fd的起始，callback)；
+
+    fs.close(fd,function(){
+
+    });
+
+    //不用open 会覆盖
+    fs.writeFile(filename,string,callback);
+
+
+    fs.writeFileSync();
+
+    //追加,会新建
+    fs.appendFile(filename,string)
+
+    fs.exists(filename,callback)
+
+
+    fs.readFile
+
+    fs.unlink
+
+    fs.raname
+
+    fs.stat 文件信息
+
+    fs.watch 观察路径改变
+
+
+    fs.mkdir(path，function)
+
+
+    fs.rmdir
+
+    fs.readdir
+
+    
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Github Pages博客一站式集成客户端----Gridea]]></title>
         <id>https://www.reallyzhang.com/post/Kzb7glRqk</id>
