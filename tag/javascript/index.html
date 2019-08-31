@@ -5,7 +5,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>
-    Nodejs | 一张真人
+    JavaScript | 一张真人
 </title>
 <link rel="shortcut icon" href="https://www.reallyzhang.com/favicon.ico?v=1567268800670">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
@@ -114,35 +114,236 @@
                     
     <div class="i-card">
         <b>标签：#
-        Nodejs</b>
+        JavaScript</b>
     </div>
     
         
             <article class="post i-card">
                 <h2 class="post-title">
-                    <a href="https://www.reallyzhang.com/post/2M_ACmXnP">
-                        NodeJs学习笔记
+                    <a href="https://www.reallyzhang.com/post/ma5HSRGcT">
+                        Ant Design 使用Upload组件默认方式上传图片到阿里云OSS
                     </a>
                 </h2>
                 <div class="post-info">
-                    <time class="post-time">2019-07-18 08:48:00</time>
+                    <time class="post-time">2019-09-01 00:24:00</time>
                     
-                        <a href="https://www.reallyzhang.com/tag/nodejs" class="post-tag i-tag
+                        <a href="https://www.reallyzhang.com/tag/javascript" class="post-tag i-tag
                             i-tag-primary">
-            #Nodejs
+            #JavaScript
         </a>
                         
                 </div>
                 <div class="post-article">
                     
+                        <a href="https://www.reallyzhang.com/post/ma5HSRGcT" class="post-feature-image" style="background-image:url(https://www.reallyzhang.com/post-images/ma5HSRGcT.jpg) ">
+                        </a>
+                        
                             <div class="post-content">
                                 
-                                    <div class="post-content-abstract">
-                                        <h2 id="1-jscript顶层对象windownode顶层对象是global对象">1. jscript顶层对象window,node顶层对象是global对象；</h2>
+                                        <div class="post-content-content">
+                                            
+背景
+近来做了一个管理后台，采用的AntDesignPro脚手架，阿里版的React全家桶，包含Ant Design组件库，Dva状态管理，权限模块，国际化，主题定制等等称成熟的解决方案，当然这不是今天要将的重点。
+今天要谈论的是使用Upload默认方式上传到OSS，为啥要用默认的方式上传呢？
 
-                                    </div>
-                                    
-                                            <a class="btn btn-text" href="https://www.reallyzhang.com/post/2M_ACmXnP">Read More ~</a>
+No reason !
+Why not !!
+
+正文
+直接上代码，试试代码自解释：
+
+import CryptoJS from &#39;crypto-js&#39;;
+import Base64 from &#39;base-64&#39;;
+
+...
+
+const uploadButton = (
+   &amp;lt;div&amp;gt;
+     &amp;lt;Icon type={payImgLoading ? &#39;loading&#39; : &#39;plus&#39;} /&amp;gt;
+     &amp;lt;div className=&amp;quot;ant-upload-text&amp;quot;&amp;gt;Upload&amp;lt;/div&amp;gt;
+   &amp;lt;/div&amp;gt;
+ );
+ 
+...
+
+&amp;lt;Upload
+  action=&amp;quot;http://xxxx.oss-cn-shanghai.aliyuncs.com&amp;quot;
+  accept=&amp;quot;image/*&amp;quot;
+  listType=&amp;quot;picture-card&amp;quot;
+  className=&amp;quot;avatar-uploader&amp;quot;
+  showUploadList={false}
+  beforeUpload={this.beforeUpload}
+  onChange={this.handleChange}
+  data={{
+    key: todayKey + &amp;quot;/${filename}&amp;quot;,
+    policy: policyBase64,
+    OSSAccessKeyId: accessKeyId,
+    success_action_status: 200,
+    signature,
+  }}
+&amp;gt;
+  {
+     payImgUrl ? 
+     &amp;lt;img 
+        src={imgUrl} 
+        alt=&amp;quot;avatar&amp;quot; 
+        style={{ width: &#39;100%&#39; }} 
+     /&amp;gt; : 
+     uploadButton
+     
+  }
+&amp;lt;/Upload&amp;gt;
+
+
+以上代码重点关注Upload组件的action属性和data属性，一个是图片上传接口地址，当然可以直接是 OSS 对象存储地址；
+而核心在data属性上：
+
+key: 文件路径采用：日期文件夹 + 文件名
+
+
+需要注意的是后面的 &amp;quot;/${filename}&amp;quot;，这里不是反引号，整体是字符串，filename是形参，不能填入真实文件名；
+
+
+policy: policyBase64
+
+const policyText = {
+  &amp;quot;expiration&amp;quot;: &amp;quot;2028-01-01T12:00:00.000Z&amp;quot;, // 设置该Policy的失效时间
+  &amp;quot;conditions&amp;quot;: [
+    [&amp;quot;content-length-range&amp;quot;, 0, 1048576000] // 设置上传文件的大小限制
+  ]
+};
+const policyBase64 = Base64.encode(JSON.stringify(policyText))
+
+
+OSSAccessKeyId: 阿里云OSS keyid
+success_action_status:200
+signature: 建议采用后天签名，下面是前端签名方法，accessSecret是阿里云OSS秘钥
+
+const bytes = CryptoJS.HmacSHA1(policyBase64, accessSecret, { asBytes: true });
+const signature = bytes.toString(CryptoJS.enc.Base64); 
+
+上面使用到两个加密库
+import CryptoJS from &#39;crypto-js&#39;;// &amp;quot;base-64&amp;quot;: &amp;quot;^0.1.0&amp;quot;
+import Base64 from &#39;base-64&#39;;//  &amp;quot;crypto-js&amp;quot;: &amp;quot;^3.1.9-1&amp;quot;
+
+今天这个编辑器老是自动滚动，不啰嗦了，在配置中遇到问题请留言吧...
+福利
+/* eslint-disable no-template-curly-in-string */
+
+import React, { PureComponent, Fragment } from &#39;react&#39;;
+import { connect } from &#39;dva&#39;;
+import moment from &#39;moment&#39;;
+import CryptoJS from &#39;crypto-js&#39;;
+import Base64 from &#39;base-64&#39;;
+import {
+  Card, Form, Input, Divider, Icon, Upload, message, Button,
+  Table, Modal, InputNumber, Select, Popconfirm
+} from &#39;antd&#39;;
+
+const todayKey = moment().format(&#39;YYYYMMDD&#39;);
+const host = &amp;quot;http://xxxx.oss-cn-shanghai.aliyuncs.com&amp;quot;;
+const accessKeyId = &amp;quot;xxxxx&amp;quot;;
+const accessSecret = &amp;quot;xxxxxx&amp;quot;;
+const policyText = {
+  &amp;quot;expiration&amp;quot;: &amp;quot;2028-01-01T12:00:00.000Z&amp;quot;, // 设置该Policy的失效时间，
+  &amp;quot;conditions&amp;quot;: [
+    [&amp;quot;content-length-range&amp;quot;, 0, 1048576000] // 设置上传文件的大小限制
+  ]
+};
+const policyBase64 = Base64.encode(JSON.stringify(policyText))
+const bytes = CryptoJS.HmacSHA1(policyBase64, accessSecret, { asBytes: true });
+const signature = bytes.toString(CryptoJS.enc.Base64); 
+
+
+@Form.create()
+@connect(({loading, usermanage }) =&amp;gt; ({
+  userList: usermanage.userList,
+  loading: loading.models.usermanage,
+}))
+class TableList extends PureComponent {
+
+  state = {
+    payImgLoading: false,
+    payImgUrl: &#39;&#39;
+  };
+  
+
+  beforeUpload = (file) =&amp;gt; {
+    // 检查图片类型
+    const isJPG = file.type === &#39;image/jpeg&#39;;
+    const isPNG = file.type === &#39;image/png&#39;;
+    const isBMP = file.type === &#39;image/bmp&#39;;
+    const isGIF = file.type === &#39;image/gif&#39;;
+    const isWEBP = file.type === &#39;image/webp&#39;;
+    const isPic = isJPG || isPNG || isBMP || isGIF || isWEBP;
+    if (!isJPG) {
+      isPic.error(&#39;请上传图片&#39;);
+      return;
+    }
+    const isLt5M = file.size / 1024 / 1024 &amp;lt; 5;
+    if (!isLt5M) {
+      message.error(&#39;上传图片必须小于 5MB!&#39;);
+      return;
+    }
+    return isPic&amp;amp;&amp;amp;isLt5M;
+  }
+
+  handleChange = ({ file }) =&amp;gt; {
+    if (file.status === &#39;uploading&#39;) {
+      this.setState({ payImgLoading: true });
+      return;
+    }
+    if (file.status === &#39;done&#39;) {
+      this.setState({
+        payImgUrl: `${host}/${todayKey}/${file.name}`,
+        payImgLoading: false,
+      });
+    }
+  }
+
+
+  render() {
+    
+    const uploadButton = (
+      &amp;lt;div&amp;gt;
+        &amp;lt;Icon type={payImgLoading ? &#39;loading&#39; : &#39;plus&#39;} /&amp;gt;
+        &amp;lt;div className=&amp;quot;ant-upload-text&amp;quot;&amp;gt;Upload&amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+    );
+  
+    return (
+        &amp;lt;Upload
+           action={host}
+           accept=&amp;quot;image/*&amp;quot;
+           listType=&amp;quot;picture-card&amp;quot;
+           className=&amp;quot;avatar-uploader&amp;quot;
+           showUploadList={false}
+           beforeUpload={this.beforeUpload}
+           onChange={this.handleChange}
+           data={{
+             key: todayKey + &amp;quot;/${filename}&amp;quot;,
+             policy: policyBase64,
+             OSSAccessKeyId: accessKeyId,
+             success_action_status: 200,
+             signature,
+           }}
+        &amp;gt;
+           {
+               payImgUrl ? 
+               &amp;lt;img src={payImgUrl} alt=&amp;quot;avatar&amp;quot; style={{ width: &#39;100%&#39; }} /&amp;gt; :
+               uploadButton   
+           }
+        &amp;lt;/Upload&amp;gt;    
+    );
+  }
+}
+
+
+
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://www.reallyzhang.com/post/ma5HSRGcT">Read More ~</a>
                             </div>
                 </div>
             </article>

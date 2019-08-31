@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-07-27T10:53:06.337Z</updated>
+    <updated>2019-08-31T16:26:46.563Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.reallyzhang.com"/>
     <link rel="self" href="https://www.reallyzhang.com/atom.xml"/>
@@ -10,6 +10,213 @@
     <logo>https://www.reallyzhang.com/images/avatar.png</logo>
     <icon>https://www.reallyzhang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
+    <entry>
+        <title type="html"><![CDATA[Ant Design 使用Upload组件默认方式上传图片到阿里云OSS]]></title>
+        <id>https://www.reallyzhang.com/post/ma5HSRGcT</id>
+        <link href="https://www.reallyzhang.com/post/ma5HSRGcT">
+        </link>
+        <updated>2019-08-31T16:24:05.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://www.reallyzhang.com/post-images/1567268742584.jpg" alt=""></p>
+<h3 id="背景">背景</h3>
+<p>近来做了一个管理后台，采用的AntDesignPro脚手架，阿里版的React全家桶，包含Ant Design组件库，Dva状态管理，权限模块，国际化，主题定制等等称成熟的解决方案，当然这不是今天要将的重点。</p>
+<p>今天要谈论的是使用Upload默认方式上传到OSS，为啥要用默认的方式上传呢？</p>
+<blockquote>
+<p>No reason !
+Why not !!</p>
+</blockquote>
+<h3 id="正文">正文</h3>
+<p>直接上代码，试试代码自解释：</p>
+<pre><code class="language-js">
+import CryptoJS from 'crypto-js';
+import Base64 from 'base-64';
+
+...
+
+const uploadButton = (
+   &lt;div&gt;
+     &lt;Icon type={payImgLoading ? 'loading' : 'plus'} /&gt;
+     &lt;div className=&quot;ant-upload-text&quot;&gt;Upload&lt;/div&gt;
+   &lt;/div&gt;
+ );
+ 
+...
+
+&lt;Upload
+  action=&quot;http://xxxx.oss-cn-shanghai.aliyuncs.com&quot;
+  accept=&quot;image/*&quot;
+  listType=&quot;picture-card&quot;
+  className=&quot;avatar-uploader&quot;
+  showUploadList={false}
+  beforeUpload={this.beforeUpload}
+  onChange={this.handleChange}
+  data={{
+    key: todayKey + &quot;/${filename}&quot;,
+    policy: policyBase64,
+    OSSAccessKeyId: accessKeyId,
+    success_action_status: 200,
+    signature,
+  }}
+&gt;
+  {
+     payImgUrl ? 
+     &lt;img 
+        src={imgUrl} 
+        alt=&quot;avatar&quot; 
+        style={{ width: '100%' }} 
+     /&gt; : 
+     uploadButton
+     
+  }
+&lt;/Upload&gt;
+
+</code></pre>
+<p>以上代码重点关注Upload组件的action属性和data属性，一个是图片上传接口地址，当然可以直接是 OSS 对象存储地址；
+而核心在data属性上：</p>
+<ul>
+<li>key: 文件路径采用：日期文件夹 + 文件名</li>
+</ul>
+<blockquote>
+<p>需要注意的是后面的 &quot;/${filename}&quot;，这里不是反引号，整体是字符串，filename是形参，不能填入真实文件名；</p>
+</blockquote>
+<ul>
+<li>policy: policyBase64</li>
+</ul>
+<pre><code>const policyText = {
+  &quot;expiration&quot;: &quot;2028-01-01T12:00:00.000Z&quot;, // 设置该Policy的失效时间
+  &quot;conditions&quot;: [
+    [&quot;content-length-range&quot;, 0, 1048576000] // 设置上传文件的大小限制
+  ]
+};
+const policyBase64 = Base64.encode(JSON.stringify(policyText))
+</code></pre>
+<ul>
+<li>OSSAccessKeyId: 阿里云OSS keyid</li>
+<li>success_action_status:200</li>
+<li>signature: 建议采用后天签名，下面是前端签名方法，accessSecret是阿里云OSS秘钥</li>
+</ul>
+<pre><code>const bytes = CryptoJS.HmacSHA1(policyBase64, accessSecret, { asBytes: true });
+const signature = bytes.toString(CryptoJS.enc.Base64); 
+</code></pre>
+<p>上面使用到两个加密库</p>
+<pre><code>import CryptoJS from 'crypto-js';// &quot;base-64&quot;: &quot;^0.1.0&quot;
+import Base64 from 'base-64';//  &quot;crypto-js&quot;: &quot;^3.1.9-1&quot;
+</code></pre>
+<p>今天这个编辑器老是自动滚动，不啰嗦了，在配置中遇到问题请留言吧...</p>
+<h4 id="福利">福利</h4>
+<pre><code>/* eslint-disable no-template-curly-in-string */
+
+import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'dva';
+import moment from 'moment';
+import CryptoJS from 'crypto-js';
+import Base64 from 'base-64';
+import {
+  Card, Form, Input, Divider, Icon, Upload, message, Button,
+  Table, Modal, InputNumber, Select, Popconfirm
+} from 'antd';
+
+const todayKey = moment().format('YYYYMMDD');
+const host = &quot;http://xxxx.oss-cn-shanghai.aliyuncs.com&quot;;
+const accessKeyId = &quot;xxxxx&quot;;
+const accessSecret = &quot;xxxxxx&quot;;
+const policyText = {
+  &quot;expiration&quot;: &quot;2028-01-01T12:00:00.000Z&quot;, // 设置该Policy的失效时间，
+  &quot;conditions&quot;: [
+    [&quot;content-length-range&quot;, 0, 1048576000] // 设置上传文件的大小限制
+  ]
+};
+const policyBase64 = Base64.encode(JSON.stringify(policyText))
+const bytes = CryptoJS.HmacSHA1(policyBase64, accessSecret, { asBytes: true });
+const signature = bytes.toString(CryptoJS.enc.Base64); 
+
+
+@Form.create()
+@connect(({loading, usermanage }) =&gt; ({
+  userList: usermanage.userList,
+  loading: loading.models.usermanage,
+}))
+class TableList extends PureComponent {
+
+  state = {
+    payImgLoading: false,
+    payImgUrl: ''
+  };
+  
+
+  beforeUpload = (file) =&gt; {
+    // 检查图片类型
+    const isJPG = file.type === 'image/jpeg';
+    const isPNG = file.type === 'image/png';
+    const isBMP = file.type === 'image/bmp';
+    const isGIF = file.type === 'image/gif';
+    const isWEBP = file.type === 'image/webp';
+    const isPic = isJPG || isPNG || isBMP || isGIF || isWEBP;
+    if (!isJPG) {
+      isPic.error('请上传图片');
+      return;
+    }
+    const isLt5M = file.size / 1024 / 1024 &lt; 5;
+    if (!isLt5M) {
+      message.error('上传图片必须小于 5MB!');
+      return;
+    }
+    return isPic&amp;&amp;isLt5M;
+  }
+
+  handleChange = ({ file }) =&gt; {
+    if (file.status === 'uploading') {
+      this.setState({ payImgLoading: true });
+      return;
+    }
+    if (file.status === 'done') {
+      this.setState({
+        payImgUrl: `${host}/${todayKey}/${file.name}`,
+        payImgLoading: false,
+      });
+    }
+  }
+
+
+  render() {
+    
+    const uploadButton = (
+      &lt;div&gt;
+        &lt;Icon type={payImgLoading ? 'loading' : 'plus'} /&gt;
+        &lt;div className=&quot;ant-upload-text&quot;&gt;Upload&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  
+    return (
+        &lt;Upload
+           action={host}
+           accept=&quot;image/*&quot;
+           listType=&quot;picture-card&quot;
+           className=&quot;avatar-uploader&quot;
+           showUploadList={false}
+           beforeUpload={this.beforeUpload}
+           onChange={this.handleChange}
+           data={{
+             key: todayKey + &quot;/${filename}&quot;,
+             policy: policyBase64,
+             OSSAccessKeyId: accessKeyId,
+             success_action_status: 200,
+             signature,
+           }}
+        &gt;
+           {
+               payImgUrl ? 
+               &lt;img src={payImgUrl} alt=&quot;avatar&quot; style={{ width: '100%' }} /&gt; :
+               uploadButton   
+           }
+        &lt;/Upload&gt;    
+    );
+  }
+}
+
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[NodeJs学习笔记]]></title>
         <id>https://www.reallyzhang.com/post/2M_ACmXnP</id>
