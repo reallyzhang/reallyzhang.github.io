@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.reallyzhang.com</id>
     <title>一张真人</title>
-    <updated>2019-08-31T16:26:46.563Z</updated>
+    <updated>2019-09-01T04:02:57.756Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.reallyzhang.com"/>
     <link rel="self" href="https://www.reallyzhang.com/atom.xml"/>
@@ -10,6 +10,36 @@
     <logo>https://www.reallyzhang.com/images/avatar.png</logo>
     <icon>https://www.reallyzhang.com/favicon.ico</icon>
     <rights>All rights reserved 2019, 一张真人</rights>
+    <entry>
+        <title type="html"><![CDATA[Mac电脑下解决sudo命令时报错 xxx is not in the sudoers file. ]]></title>
+        <id>https://www.reallyzhang.com/post/Fv202DZnW</id>
+        <link href="https://www.reallyzhang.com/post/Fv202DZnW">
+        </link>
+        <updated>2019-09-01T04:01:28.000Z</updated>
+        <content type="html"><![CDATA[<p>今天电脑莫名抽风，先是各种应用奔溃，半天才重启成功，再接着外接显示屏分辨率调的太小，看着难受，重启三四才调整过来，再后来启动mongodb的时候报这个错:</p>
+<pre><code>    xxx is not in the sudoers file.  This incident will be reported.
+</code></pre>
+<p>说来也奇怪，重启前还是好好的，重启后就出问题了，让我越来越怀疑苹果的品质了。</p>
+<p>闲话少说，直接上来解决方案：</p>
+<ol>
+<li>在命令行里输入：</li>
+</ol>
+<pre><code>sudo visudo
+</code></pre>
+<ol start="2">
+<li>回车，输入密码，这时会进入sudo文件的vi编辑模式</li>
+</ol>
+<img  src="https://pic3.zhimg.com/v2-e0db8c821706e64011da4ed439bc6eca.png" >
+<p>&gt; 找到root下面添加 xxx  ALL = (ALL) ALL这行
+&gt; xxx是你的用户名</p>
+<ol start="3">
+<li>编辑完成后按esc退出到查看默认，然后直接输入:wq 回车保存即可；</li>
+</ol>
+<pre><code>:wq
+</code></pre>
+<p>你成功了吗，在操作过程中遇到什么问题欢迎在评论中回复，我看到后hui</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Ant Design 使用Upload组件默认方式上传图片到阿里云OSS]]></title>
         <id>https://www.reallyzhang.com/post/ma5HSRGcT</id>

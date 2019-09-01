@@ -1,0 +1,301 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    Mac电脑下解决sudo命令时报错 xxx is not in the sudoers file.  | 一张真人
+</title>
+<link rel="shortcut icon" href="https://www.reallyzhang.com/favicon.ico?v=1567310575679">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://www.reallyzhang.com/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://www.reallyzhang.com/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                
+
+                    
+                            
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://www.reallyzhang.com">
+                <img class="avatar" src="https://www.reallyzhang.com/images/avatar.png?v=1567310575679" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    一张真人
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="/" class="menu">
+                                    首页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tag/chuang-yi" class="menu">
+                                    创意
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tag/pdf" class="menu">
+                                    PDF阅读
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/post/about/" class="menu">
+                                    关于
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            Mac电脑下解决sudo命令时报错 xxx is not in the sudoers file. 
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2019-09-01 12:01:00</time>
+                            
+                                <a href="https://www.reallyzhang.com/tag/life" class="post-tag i-tag
+                            i-tag-other_2">
+                            #生活
+                        </a>
+                                
+                        </div>
+                        
+                            <div class="post-feature-image" style="background-image: url('https://www.reallyzhang.com/post-images/Fv202DZnW.jpg')"></div>
+                            
+                                <div class="post-content">
+                                    <p>今天电脑莫名抽风，先是各种应用奔溃，半天才重启成功，再接着外接显示屏分辨率调的太小，看着难受，重启三四才调整过来，再后来启动mongodb的时候报这个错:</p>
+<pre><code>    xxx is not in the sudoers file.  This incident will be reported.
+</code></pre>
+<p>说来也奇怪，重启前还是好好的，重启后就出问题了，让我越来越怀疑苹果的品质了。</p>
+<p>闲话少说，直接上来解决方案：</p>
+<ol>
+<li>在命令行里输入：</li>
+</ol>
+<pre><code>sudo visudo
+</code></pre>
+<ol start="2">
+<li>回车，输入密码，这时会进入sudo文件的vi编辑模式</li>
+</ol>
+<img  src="https://pic3.zhimg.com/v2-e0db8c821706e64011da4ed439bc6eca.png" >
+<p>&gt; 找到root下面添加 xxx  ALL = (ALL) ALL这行
+&gt; xxx是你的用户名</p>
+<ol start="3">
+<li>编辑完成后按esc退出到查看默认，然后直接输入:wq 回车保存即可；</li>
+</ol>
+<pre><code>:wq
+</code></pre>
+<p>你成功了吗，在操作过程中遇到什么问题欢迎在评论中回复，我看到后hui</p>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://www.reallyzhang.com/post/ma5HSRGcT">
+                                <h3 class="post-title">
+                                    Ant Design 使用Upload组件默认方式上传图片到阿里云OSS
+                                </h3>
+                            </a>
+                        </div>
+                        
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                                <!-- id-card -->
+                                
+    <div class="id_card i-card">
+        <div class="id_card-avatar" style="background-image: url(https://www.reallyzhang.com/images/avatar.png?v=1567310575679)">
+        </div>
+        <h1 class="id_card-title">
+            一张真人
+        </h1>
+        <h2 class="id_card-description">
+            稳定的心态和习惯，在日常练习中熟能生巧，长此以往，必然持续高效输出
+        </h2>
+        <!--  -->
+        <div class="id_card-sns">
+            <!-- github -->
+            
+                <a href="https://www.baidu.com/reallyzhang" target="_blank" rel="noopener noreferrer"><i
+                class="fa fa-github"></i></a>
+                
+                    <!-- twitter -->
+                    
+                            <!-- weibo -->
+                            
+                                    <!-- facebook -->
+                                    
+
+        </div>
+    </div>
+    
+                                    
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  © <a href="https://juejin.im/user/588318ed8d6d81006cdd5586/posts" target="_blank">一张真人</a>
+
+<!--覆盖默认样式-->
+<style type="text/css">
+.header {   
+    height:64px !important;
+}
+.post-title{
+    border:none !important;
+}
+.btn-text{    
+    width: 80px;
+    height: 18px;
+    overflow: hidden;
+}
+.site-title h1{
+    font-weight:400 !important;
+    margin-left:10px !important;
+    margin-right:0 !inportant;
+}
+
+.id_card .id_card-avatar{
+    padding:4px !important;
+}
+.post-content-abstract{
+    max-width: 600px !important;
+    max-height: 100px !important;
+    overflow: hidden;
+}
+.post-content-abstract *{
+    font-size:14px !important;
+    display:inline !important;
+    margin:0 6px 2px 0 !important;
+    font-weight:300 !important;
+}
+.markdownIt-TOC >li >ul >li{
+list-style-type:none !important;
+}
+   
+</style> | 
+  <a class="rss" href="https://www.reallyzhang.com/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+        
+            <script>
+    window.onload = function() {
+        var gitalk = new Gitalk({
+            clientID: '879407cb870305dab86c',
+            clientSecret: 'fd3229330c37184c418ed9b226f24e9614224c3f',
+            repo: 'reallyzhang.github.io',
+            owner: 'reallyzhang',
+            admin: ['reallyzhang'],
+            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    }
+</script>
+                
+
+                    
+                                
+</body>
+
+</html>

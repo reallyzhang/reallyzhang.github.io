@@ -7,7 +7,7 @@
 <title>
     一张真人
 </title>
-<link rel="shortcut icon" href="https://www.reallyzhang.com/favicon.ico?v=1567268800670">
+<link rel="shortcut icon" href="https://www.reallyzhang.com/favicon.ico?v=1567310575679">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -27,7 +27,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://www.reallyzhang.com">
-                <img class="avatar" src="https://www.reallyzhang.com/images/avatar.png?v=1567268800670" alt="">
+                <img class="avatar" src="https://www.reallyzhang.com/images/avatar.png?v=1567310575679" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -115,6 +115,59 @@
         
             <article class="post i-card">
                 <h2 class="post-title">
+                    <a href="https://www.reallyzhang.com/post/Fv202DZnW">
+                        Mac电脑下解决sudo命令时报错 xxx is not in the sudoers file. 
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2019-09-01 12:01:00</time>
+                    
+                        <a href="https://www.reallyzhang.com/tag/life" class="post-tag i-tag
+                            i-tag-success">
+            #生活
+        </a>
+                        
+                </div>
+                <div class="post-article">
+                    
+                        <a href="https://www.reallyzhang.com/post/Fv202DZnW" class="post-feature-image" style="background-image:url(https://www.reallyzhang.com/post-images/Fv202DZnW.jpg) ">
+                        </a>
+                        
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            今天电脑莫名抽风，先是各种应用奔溃，半天才重启成功，再接着外接显示屏分辨率调的太小，看着难受，重启三四才调整过来，再后来启动mongodb的时候报这个错:
+    xxx is not in the sudoers file.  This incident will be reported.
+
+说来也奇怪，重启前还是好好的，重启后就出问题了，让我越来越怀疑苹果的品质了。
+闲话少说，直接上来解决方案：
+
+在命令行里输入：
+
+sudo visudo
+
+
+回车，输入密码，这时会进入sudo文件的vi编辑模式
+
+
+&amp;gt; 找到root下面添加 xxx  ALL = (ALL) ALL这行
+&amp;gt; xxx是你的用户名
+
+编辑完成后按esc退出到查看默认，然后直接输入:wq 回车保存即可；
+
+:wq
+
+你成功了吗，在操作过程中遇到什么问题欢迎在评论中回复，我看到后hui
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://www.reallyzhang.com/post/Fv202DZnW">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+            <article class="post i-card">
+                <h2 class="post-title">
                     <a href="https://www.reallyzhang.com/post/ma5HSRGcT">
                         Ant Design 使用Upload组件默认方式上传图片到阿里云OSS
                     </a>
@@ -123,7 +176,7 @@
                     <time class="post-time">2019-09-01 00:24:00</time>
                     
                         <a href="https://www.reallyzhang.com/tag/javascript" class="post-tag i-tag
-                            i-tag-success">
+                            i-tag-other_2">
             #JavaScript
         </a>
                         
@@ -353,7 +406,7 @@ class TableList extends PureComponent {
                     <time class="post-time">2019-07-18 08:48:00</time>
                     
                         <a href="https://www.reallyzhang.com/tag/nodejs" class="post-tag i-tag
-                            i-tag-banana">
+                            i-tag-other_2">
             #Nodejs
         </a>
                         
@@ -382,7 +435,7 @@ class TableList extends PureComponent {
                     <time class="post-time">2019-07-14 10:17:00</time>
                     
                         <a href="https://www.reallyzhang.com/tag/gridea" class="post-tag i-tag
-                            i-tag-info">
+                            i-tag-error">
             #Gridea
         </a>
                         
@@ -415,7 +468,7 @@ class TableList extends PureComponent {
                     <time class="post-time">2019-07-13 11:55:00</time>
                     
                         <a href="https://www.reallyzhang.com/tag/pdf" class="post-tag i-tag
-                            i-tag-error">
+                            i-tag-success">
             #pdf阅读
         </a>
                         
@@ -450,7 +503,7 @@ class TableList extends PureComponent {
                     <time class="post-time">2019-07-13 11:26:00</time>
                     
                         <a href="https://www.reallyzhang.com/tag/chuang-yi" class="post-tag i-tag
-                            i-tag-other_3">
+                            i-tag-">
             #创意
         </a>
                         
@@ -482,12 +535,12 @@ class TableList extends PureComponent {
                     <time class="post-time">2019-07-13 09:00:00</time>
                     
                         <a href="https://www.reallyzhang.com/tag/reallyzhang" class="post-tag i-tag
-                            i-tag-success">
+                            i-tag-other_2">
             #一张真人
         </a>
                         
                         <a href="https://www.reallyzhang.com/tag/life" class="post-tag i-tag
-                            i-tag-other_3">
+                            i-tag-">
             #生活
         </a>
                         
@@ -544,7 +597,7 @@ class TableList extends PureComponent {
                     <!-- 个人信息 -->
                     
     <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://www.reallyzhang.com/images/avatar.png?v=1567268800670)">
+        <div class="id_card-avatar" style="background-image: url(https://www.reallyzhang.com/images/avatar.png?v=1567310575679)">
         </div>
         <h1 class="id_card-title">
             一张真人
